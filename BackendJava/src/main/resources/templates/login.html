@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments/fragments :: head"></head>
+<body>
+<div th:replace="fragments/fragments :: navbar"></div>
+<main role="main">
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="bg-white">
+        <div class="container text-center">
+            <!--            <h1 class="display-3">Find Help Here</h1>-->
+            <!--            <p>Connecting people in need with people who can help</p>-->
+            <img class="text-center" alt="logo" src="https://i.imgur.com/r5RSGIN.png"
+                 style="max-height: 100%; object-fit: cover;"/>
+            <!--            <iframe src="URL" width="480" height="320" frameBorder="0"-->
+            <!--                    class="giphy-embed" allowFullScreen></iframe>-->
+        </div>
+    </div>
+    <div class="neg-margin navbar-light bg-light">
+    <div class="container">
+        <h2>Welcome!</h2>
+        <p>If this your first time here you can register your service with our database by clicking the Sign Up button.
+            If you are a returning member you can sign in below.</p>
+
+        <form th:action="@{/login}" method="post"><br/>
+            <input type="text" id="username" name="username" th:placeholder="username" class="form-control"/> <br/>
+            <input type="password" th:placeholder="Password" id="password" name="password" class="form-control"/> <br/>
+            <div align="center" th:if="${param.error}">
+                <h4 style="color: red">Login unsuccessful.</h4>
+            </div>
+            <button class="btn btn-primary btn-lg twitter-btn" name="Submit" value="Login" type="Submit">Log in</button>
+        </form>
+        <form th:action="@{/signup}" method="post"><br/>
+            <button class="btn btn-primary btn-lg twitter-btn" name="Submit" value="Submit" type="Submit">Sign up</button>
+        </form>
+    </div>
+    <footer th:replace="fragments/fragments :: footer"></footer>
+    </div>
+</body>
+</html>

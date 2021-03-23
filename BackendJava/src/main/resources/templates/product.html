@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments/fragments :: head"></head>
+<body>
+<div th:replace="fragments/fragments :: navbar"></div>
+<main role="main">
+    <div class="bg-white">
+        <div class="container text-center">
+            <!--            <h1 class="display-3">Find Help Here</h1>-->
+            <!--            <p>Connecting people in need with people who can help</p>-->
+            <img class="text-center" alt="logo" src="https://i.imgur.com/DzyQsoD.png"
+                 style="max-height: 100%; object-fit: cover;"/>
+            <!--            <iframe src="URL" width="480" height="320" frameBorder="0"-->
+            <!--                    class="giphy-embed" allowFullScreen></iframe>-->
+        </div>
+    </div>
+    <div class="neg-margin navbar-light bg-light">
+    <div class="container">
+        <div class="card mb-3 large-product-card">
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <img th:alt="${product.name}" th:src="@{${product.image}}" class="card-img"
+                         style="max-height: 100%; object-fit: cover;"/>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h4 th:text="${product.name}" style="margin-bottom: 0;"></h4>
+<!--                            <small th:text="${product.getBrand()}"></small>-->
+                        </div>
+<!--                        <h5 class="card-text" th:text="${#numbers.formatCurrency(product.price)}"></h5>-->
+                        <p class="card-text" th:text="${product.description}"></p>
+                        <form th:action="@{/cart}" th:object="${product}" method="post">
+                            <input type="hidden" th:field="*{id}"/>
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                        </form>
+                        <br />
+                        <!--                    <form th:action="@{/cart/remove}" th:object="${product}" method="post">-->
+                        <!--                        <input type="hidden" th:field="*{id}"/>-->
+                        <!--                        <button type="submit" class="btn btn-warning">Remove from Cart</button>-->
+                        <!--                    </form>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+<footer th:replace="fragments/fragments :: footer"></footer>
+</body>
+</html>
