@@ -1,31 +1,16 @@
-import "./App.css";
+import logo from './logo.svg';
+import './App.css';
+import './components/Search/Search'
+import Search from './components/Search/Search';
 import Header from "./components/Header/Header";
-import Forecast from "./components/Forecast/Forecast";
+import Routes from "./components/Router/Routes"
 
 function App() {
-  // componentDidMount() {
-  //   fetch('localhost:8080/nonprofits/city?city=')
-  //   .then(res => res.json())
-  //   .then((data) => {
-  //     this.setState({ nonprofits: data })
-  //   })
-  //   .catch(console.log)
-  // }
-
   return (
     <div className="App">
-      <header className="App-header">
-        <h2>Find Help Now</h2>
-      <p>Connecting people in need with people who can help.</p>
-      </header>
-      <Header/>
-      <main>
-        <Forecast />
-      </main>
-      <footer>Page created by TEAM Sawyer, Wade, Shawn, Steve, Scott!!</footer>
+     <Routes />
     </div>
   );
 }
 
 export default App;
-//notes here
